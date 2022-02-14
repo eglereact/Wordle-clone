@@ -8,6 +8,10 @@ const keyboard = document.querySelector("[data-keyboard]");
 const alertContainer = document.querySelector("[data-alert-container]");
 const guessGrid = document.querySelector("[data-guess-grid]");
 const targetWord = targetWords[Math.floor(Math.random() * targetWords.length)];
+const info = document.querySelector(".info");
+info.addEventListener("click", () => showInfo());
+const exit = document.querySelector(".exit");
+exit.addEventListener("click", () => hideInfo());
 
 const startInteraction = () => {
   document.addEventListener("click", handleMouseClick);
@@ -151,6 +155,14 @@ const showAlert = (message, duration = 1000) => {
   }, duration);
 };
 
+const showInfo = () => {
+  document.getElementById("myDIV").style.display = "block";
+};
+
+const hideInfo = () => {
+  document.getElementById("myDIV").style.display = "none";
+};
+
 const shakeTiles = (tiles) => {
   tiles.forEach((tile) => {
     tile.classList.add("shake");
@@ -173,7 +185,7 @@ const checkWinLose = (guess, tiles) => {
   }
   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
   if (remainingTiles.length === 0) {
-    showAlert(targetWord.toUpperCase(), null);
+    showAlert(targetWord.toUpperCase(), 5000);
     stopInteraction();
   }
 };

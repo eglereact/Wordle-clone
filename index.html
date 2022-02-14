@@ -11,6 +11,49 @@
     <title>Wordle-eldroW</title>
   </head>
   <body>
+    <div class="info-container "  id="myDIV" data-info-container>
+      <div class="info-wrapper">
+        <div class="info-header">
+          <h3>How to play</h3>
+          <div class="exit">
+            <i class="material-icons">&#xe5cd;</i>
+          </div>
+        </div>
+        <div class="info-body">
+          <p>Guess the <span>WORDLE</span> in six tries.</p>
+          <p>Each guess must be a valid five-letter word. Hit the enter button to submit.</p>
+          <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+          <hr />
+          <h4>Examples</h4>
+          <div class="info-word">
+            <div class="info-box correct">W</div>
+            <div class="info-box">E</div>
+            <div class="info-box">A</div>
+            <div class="info-box">R</div>
+            <div class="info-box">Y</div>
+          </div>
+          <p>The letter <span>W</span> is in the word and in the correct spot.</p>
+          <div class="info-word">
+            <div class="info-box">P</div>
+            <div class="info-box wrong-location">I</div>
+            <div class="info-box">L</div>
+            <div class="info-box">L</div>
+            <div class="info-box">S</div>
+          </div>
+          <p>The letter <span>I</span> is in the word but in the wrong spot.</p>
+            <div class="info-word">
+            <div class="info-box">V</div>
+            <div class="info-box">O</div>
+            <div class="info-box">G</div>
+            <div class="info-box wrong">U</div>
+            <div class="info-box">E</div>
+          </div>
+          <p>The letter <span>U</span> is not in the word in any spot.</p>
+          <hr />
+          <h4>A new WORDLE will be available every time!</h4>
+        </div>  
+      </div>
+    </div>
     <header class="header">
       <div class="header-wrapper">
         <div class="info">
@@ -25,6 +68,7 @@
     </header>
     <div class="alert-container" data-alert-container>
     </div>
+
       <div data-guess-grid class="guess-grid"> 
         <div class="tile"></div>
         <div class="tile"></div>
