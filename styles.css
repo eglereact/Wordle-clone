@@ -11,8 +11,38 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  padding: 1em;
+  padding-bottom: 0.5em;
   font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+}
+
+.header {
+  color: #ffffff;
+  border-bottom: 1px solid #39393c;
+  width: 100%;
+}
+
+.header-wrapper {
+  display: grid;
+  grid-auto-columns: 1fr 4fr 1fr;
+  align-items: center;
+  text-align: center;
+  grid-auto-flow: column;
+}
+
+.info {
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+.stats > i {
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0.3em;
 }
 
 .key {
@@ -80,7 +110,8 @@ body {
   grid-template-columns: repeat(5, 4em);
   grid-template-rows: repeat(6, 4em);
   gap: 0.25em;
-  margin-bottom: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .tile {
