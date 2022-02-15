@@ -177,13 +177,26 @@ const shakeTiles = (tiles) => {
 };
 
 const checkWinLose = (guess, tiles) => {
+  const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
+
   if (guess === targetWord) {
-    showAlert("You won", 5000);
+    if (remainingTiles.length === 25) {
+      showAlert("Genius", 1000);
+    }
+    if (remainingTiles.length === 20 || remainingTiles.length === 15) {
+      showAlert("Great!", 1000);
+    }
+    if (remainingTiles.length === 10 || remainingTiles.length === 5) {
+      showAlert("Good job!", 1000);
+    }
+    if (remainingTiles.length === 0) {
+      showAlert("Phew!", 1000);
+    }
     danceTiles(tiles);
     stopInteraction();
     return;
   }
-  const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
+
   if (remainingTiles.length === 0) {
     showAlert(targetWord.toUpperCase(), 5000);
     stopInteraction();
