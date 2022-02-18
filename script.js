@@ -140,6 +140,19 @@ const flipTiles = (tile, index, array, guess) => {
   );
 };
 
+const showEnd = () => {
+  let btn = document.createElement("button");
+  btn.innerHTML = "Again";
+  setTimeout(() => {
+    btn.addEventListener("click", function () {
+      //TODO: need to rewrite this part
+      location.reload();
+      return;
+    });
+    alertContainer.prepend(btn);
+  }, 1500);
+};
+
 const showAlert = (message, duration = 1000) => {
   const alert = document.createElement("div");
   alert.textContent = message;
@@ -182,15 +195,19 @@ const checkWinLose = (guess, tiles) => {
   if (guess === targetWord) {
     if (remainingTiles.length === 25) {
       showAlert("Genius", 1000);
+      showEnd();
     }
     if (remainingTiles.length === 20 || remainingTiles.length === 15) {
       showAlert("Great!", 1000);
+      showEnd();
     }
     if (remainingTiles.length === 10 || remainingTiles.length === 5) {
       showAlert("Good job!", 1000);
+      showEnd();
     }
     if (remainingTiles.length === 0) {
       showAlert("Phew!", 1000);
+      showEnd();
     }
     danceTiles(tiles);
     stopInteraction();
@@ -198,7 +215,8 @@ const checkWinLose = (guess, tiles) => {
   }
 
   if (remainingTiles.length === 0) {
-    showAlert(targetWord.toUpperCase(), 5000);
+    showAlert(targetWord.toUpperCase(), 1000);
+    showEnd();
     stopInteraction();
   }
 };
